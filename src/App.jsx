@@ -11,7 +11,9 @@ import Admin from "./components/Admin";
 import CategorySection from "./components/CategorySection";
 import Footer from "./components/Footer";
 import FeaturedProducts from "./components/FeaturedProducts";
+import PromoBanner from "./components/Promobanner";
 import { Routes, Route } from "react-router-dom";
+seedProducts();
 function App() {
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -19,9 +21,6 @@ function App() {
   });
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  useEffect(() => {
-    seedProducts();
-  }, []);
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -74,7 +73,13 @@ function App() {
             <>
               <Hero />
               <CategorySection setSelectedCategory={setSelectedCategory} />
+              <PromoBanner />
               <FeaturedProducts
+                addToCart={addToCart}
+                selectedCategory={selectedCategory}
+              />
+
+              <ProductGrid
                 addToCart={addToCart}
                 selectedCategory={selectedCategory}
               />
