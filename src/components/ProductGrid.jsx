@@ -20,7 +20,7 @@ function ProductGrid(props) {
     <>
       <div className="w-full  max-w-6xl mx-auto px-4 mt-6" id="products">
         {props.showTitle !== false && (
-          <h2 className="font-bold text-2xl text-center font-sans mb-4 mt-6 sm:mt-9">
+          <h2 className="font-bold text-xl sm:text-2xl text-center font-sans mb-4 mt-6 sm:mt-9">
             Browse From Our List Of Products
           </h2>
         )}
